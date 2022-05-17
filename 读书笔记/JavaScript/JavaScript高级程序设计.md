@@ -23,7 +23,7 @@
 `integrity`：<mark>可选</mark>。允许比对接收到的资源和指定的加密签名以验证子资源完整性（SRI，Subresource Integrity）。**如果接收到的资源的签名与这个属性指定的签名不匹配，则页面会报错，脚本不会执行**。这个属性可以用于确保内容分发网络（CDN，Content Delivery Network）不会提供恶意内容。
 
 ### 3. type
-如果这个值是<mark>module</mark>，则代码会被当成 ES6 模块，而且只有这时候代码中才能出现**import**和**export**关键字。
+如果这个值是<mark>module</mark>，则代码会被当成 ES6 模块，而且只有这时候代码中才能出现`import`和`export`关键字。
 
 ---
 
@@ -37,7 +37,7 @@ let script = document.createElement('script');
 script.src = 'gibberish.js'; 
 document.head.appendChild(script);
 ```
-**注意**：<u>所有浏览器都支持`createElement()`方法，但不是所有浏览器都支持`async`属性</u>。因此，如果要统一动态脚本的加载行为，可以明确将其**设置为同步加载**`(script.async = false)`。
+**<font color="red">注意</font>**：<u>所有浏览器都支持`createElement()`方法，但不是所有浏览器都支持`async`属性</u>。因此，如果要统一动态脚本的加载行为，可以明确将其**设置为同步加载**`(script.async = false)`。
 ```javascript
 // 同步加载外部脚本
 let script = document.createElement('script'); 
