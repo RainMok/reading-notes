@@ -37,7 +37,7 @@ let script = document.createElement('script');
 script.src = 'gibberish.js'; 
 document.head.appendChild(script);
 ```
-<mark>**注意</mark>：== <u>所有浏览器都支持`createElement()`方法，但不是所有浏览器都支持`async`属性</u>。因此，如果要统一动态脚本的加载行为，可以明确将其**设置为同步加载**`(script.async = false)`。
+**注意**：<u>所有浏览器都支持`createElement()`方法，但不是所有浏览器都支持`async`属性</u>。因此，如果要统一动态脚本的加载行为，可以明确将其**设置为同步加载**`(script.async = false)`。
 ```javascript
 // 同步加载外部脚本
 let script = document.createElement('script'); 
@@ -45,7 +45,7 @@ script.src = 'gibberish.js';
 script.async = false; // 设置为同步加载
 document.head.appendChild(script);
 ```
-><mark>以这种方式获取的资源对浏览器预加载器是不可见的</mark>。这会严重影响它们在资源获取队列中的优先级。这种方式可能会<mark>严重影响性能</mark>。要想让预加载器知道这些动态请求文件的存在，**可以在文档头部显式声明它们**。
+>`以这种方式获取的资源对浏览器预加载器是不可见的`。这会严重影响它们在资源获取队列中的优先级。这种方式可能会`严重影响性能`。要想让预加载器知道这些动态请求文件的存在，**可以在文档头部显式声明它们**。
 ```html
 <link rel="preload" href="gibberish.js">
 ```
