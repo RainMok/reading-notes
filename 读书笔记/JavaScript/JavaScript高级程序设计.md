@@ -5,6 +5,7 @@
 ---
 - [JavaScript高级程序设计](#javascript高级程序设计)
   - [- **作者：Matt Frisbie**](#--作者matt-frisbie)
+  - [- ### 八. Object 类型](#---八-object-类型)
   - [Script 标签](#script-标签)
     - [一. async](#一-async)
     - [二. integrity](#二-integrity)
@@ -26,6 +27,7 @@
     - [五. Number 类型](#五-number-类型)
     - [六. String 类型](#六-string-类型)
     - [七. Symbol 类型](#七-symbol-类型)
+    - [八. Object 类型](#八-object-类型)
 ---
 
 ## Script 标签
@@ -453,6 +455,78 @@ console.log(String.raw`\u00A9`); // \u00A9
 ```
 
 ### 七. Symbol 类型
+><mark>符号实例是唯一、不可变的</mark>。符号的用途是 **<u>确保对象属性使用唯一标识符</u>** ，不会发生 **<u>属性冲突</u>** 的危险
+1. **基本用法**
+符号需要使用 Symbol() 函数初始化
+```javascript
+let sym = Symbol();
+console.log(typeof sym); // symbol
+```
+- 传入一个字符串参数作为对符号的描述（description），将来可以通过这个字符串来调试代码
+```javascript
+let genericSymbol = Symbol();
+let otherGenericSymbol = Symbol();
+
+let fooSymbol = Symbol('foo');
+let otherFooSymbol = Symbol('foo');
+
+console.log(genericSymbol == otherGenericSymbol); // false
+console.log(fooSymbol == otherFooSymbol); // false
+```
+- 只要创建 `Symbol()` 实例并将其用作对象的新属性，就可以保证它不会覆盖已有的对象属性，无论是符号属性还是字符串属性
+```javascript
+let genericSymbol = Symbol();
+console.log(genericSymbol); // Symbol()
+
+let fooSymbol = Symbol('foo');
+console.log(fooSymbol); // Symbol(foo);
+```
+-  **`Symbol()` 函数不能与 `new` 关键字一起作为构造函数使用**
+```javascript
+let mySymbol = new Symbol(); // TypeError: Symbol is not a constructor
+```
+
+&emsp;&emsp;**（1）. <mark>使用 `Object()` 函数来实现符号包装对象</mark>**
+```javascript
+let mySymbol = Symbol();
+let myWrappedSymbol = Object(mySymbol);
+console.log(typeof myWrappedSymbol); // "object"
+```
+
+2. **全局符号注册表**
+> **不同部分** 需要 **共享** 和 **重用**符号实例，那么可以用一个**字符串作为键** ，在全局符号注册表中创建并重用符号 
+
+- 使用 `symbol.for()` **创建** 可重用的符号实例
+```javascript
+let fooGlobalSymbol = Symbol.for('foo'); // 创建新符号
+console.log(typeof fooGlobalSymbol); // symbol
+let otherFooGlobalSymbol = Symbol.for('foo'); // 重用已有符号
+
+console.log(fooGlobalSymbol === otherFooGlobalSymbol); // true
+```
+&emsp;&emsp; **（1）**. 注册表中使用的键同时也会被用作符号描述
+```javascript
+let emptyGlobalSymbol = Symbol.for();
+console.log(emptyGlobalSymbol); // Symbol(undefined)
+```
+
+- 使用 `Symbol.keyFor()` **查询** 全局注册表
+```javascript
+// 创建全局符号
+let s = Symbol.for('foo');
+console.log(Symbol.keyFor(s)); // foo
+// 创建普通符号
+let s2 = Symbol('bar');
+console.log(Symbol.keyFor(s2)); // undefined
+```
+&emsp;&emsp; **（1）**. 传给 `Symbol.keyFor()` 的不是符号，则该方法抛出 `TypeError`
+
+3. **使用符号作为属性**
+>凡是可以使用 **字符串** 或 **数值** 作为 **属性** 的地方，都可以使用符号
+
+
+
+### 八. Object 类型
 
 
 ---
