@@ -22,9 +22,10 @@
     - [1. typeof 操作符](#1-typeof-操作符)
     - [2. Undefinde 类型](#2-undefinde-类型)
     - [3. Null 类型](#3-null-类型)
-    - [Boolean 类型](#boolean-类型)
-    - [Number 类型](#number-类型)
-    - [String 类型](#string-类型)
+    - [4. Boolean 类型](#4-boolean-类型)
+    - [5. Number 类型](#5-number-类型)
+    - [6. String 类型](#6-string-类型)
+    - [7. Symbol 类型](#7-symbol-类型)
 ---
 
 ## Script 标签
@@ -60,7 +61,7 @@ let script = document.createElement('script');
 script.src = 'gibberish.js'; 
 document.head.appendChild(script);
 ```
-**<mark>注意</mark>**：<u>所有浏览器都支持`createElement()`方法，但不是所有浏览器都支持`async`属性</u>。因此，如果要统一动态脚本的加载行为，可以明确将其**设置为同步加载**`(script.async = false)`。
+- **<mark>注意</mark>**：<u>所有浏览器都支持`createElement()`方法，但不是所有浏览器都支持`async`属性</u>。因此，如果要统一动态脚本的加载行为，可以明确将其**设置为同步加载**`(script.async = false)`。
 ```javascript
 // 同步加载外部脚本
 let script = document.createElement('script'); 
@@ -75,11 +76,11 @@ document.head.appendChild(script);
 ---
 
 ## 严格模式
-1. 在文件开头，使整个文件都采用严格模式
+1. **在文件开头，使整个文件都采用严格模式**
 ```javascript
 use strict;
 ```
-2. 在函数内部使用，单独地使函数内部开启严格模式
+2. **在函数内部使用，单独地使函数内部开启严格模式**
 ```javascript
 function doSomething(){
   use strict;
@@ -89,8 +90,8 @@ function doSomething(){
 ---
 
 ## 语法
-1. 推荐代码使用分号（;）结尾，在压缩代码的时候不会出现错误。
-2. 遇见if使用单个条件语句的时候，进来采用“{}”，而不推荐使用C风格的写法
+1. **推荐代码使用分号（;）结尾，在压缩代码的时候不会出现错误**
+2. **遇见if使用单个条件语句的时候，进来采用“{}”，而不推荐使用C风格的写法**
 ```javascript
 // 不推荐
 if (true) console.log(true);
@@ -105,14 +106,14 @@ if (true){
 ## 变量
 ### 1. var 关键字 
 >声明的范围是 **<mark>函数作用域</mark>**
-1. `var` 定义变量的时候，自动被赋值 `undefined`
-2. 定义多个变量时，可以用`逗号，`隔开
+1. **`var` 定义变量的时候，自动被赋值 `undefined`**
+2. **定义多个变量时，可以用`逗号，`隔开**
   ```javascript
    var name = "张三",
         age = 20,
    nickname = "法外狂徒";   
   ```
-3. 声明作用域
+3. **声明作用域**
 ```javascript
   function test(){
     var message = "test";
@@ -126,7 +127,7 @@ if (true){
   test();
   console.log(message) // “test” ，不带var的变量message的作用域被从函数内部提升到了全局作用域。
 ```
-4. 声明提升
+4. **声明提升**
 ```javascript
 function test(){
   console.log(age);
@@ -147,7 +148,7 @@ var age 22;
 
 ### 2. let 关键字
 >声明的范围是 **<mark>块级作用域</mark>**
-1. 块级作用域
+1. **块级作用域**
 ```javascript
 if (true){
   var message = "test";
@@ -161,15 +162,15 @@ if (true){
 }
 console.log(message); // ReferenceError 异常 找不到变量message
 ```
-`let` 的作用域只限于if内部
+`let` 的作用域只限于 `if` 内部
 
-2. 不可以重复定义
+2. **不可以重复定义**
 ```javascript
 let test = 1;
 let test = 2;   // 这样是错误的
 ```
 
-3. 暂时性锁区
+3. **暂时性锁区**
 ```javascript
 console.log(name);
 var name = "张三"; // 不会报错，name 被 var 提升到了作用域的最前面
@@ -178,11 +179,11 @@ console.log(name);
 let name = "张三"; // 报错，未定义 ReferenceError 
 ```
 
-4. 全局声明
+4. **全局声明**
 与 var 关键字不同，使用 `let` 在全局作用域中声明的变量不会成为 `window` 对象的属性（ `var` 声明的变量则会）
 
-5. 对于 `let` 这个新的 ES6 声明关键字，不能依赖条件声明模式
-6. `for`循环中的 `let` 声明
+5. **对于 `let` 这个新的 ES6 声明关键字，不能依赖条件声明模式**
+6. **`for`循环中的 `let` 声明**
 ```javascript
 // for循环中的var变量声明
 for (var i = 0; i < 5;  i++){
@@ -203,12 +204,12 @@ for(let i = 5; i < 5; i++){
 
 ### 3. const 关键字
 
-1. 初始化即复制，不可更改；复制对象时，对象元素除外。
+1. **初始化即复制，不可更改；复制对象时，对象元素除外**
    
 >`const` 的行为与 `let` 基本相同，唯一一个重要的区别是用它声明变量时必须同时初始化变量，且尝试修改 `const` 声明的变量会导致运行时错误。
 >声明的限制只适用于它指向的变量的引用，**<mark>如果 const 变量引用的是一个`对象`，那么修改这个对象内部的属性并不违反 const 的限制</mark>**。 
 
-2. `const` 不可用于 `for` 循环内定义使用 (迭代变量会自增)
+2. **`const` 不可用于 `for` 循环内定义使用 (迭代变量会自增)**
 
 ---
 
@@ -227,39 +228,39 @@ for(let i = 5; i < 5; i++){
 
 变量在声明的时候并未初始化时，会被隐式地赋值 `undefined` ，无需显示赋值。**目的是**：<u>明确空指针对象与未赋值变量的区别</u>
 
-1. 对于使用`typeof` 对 `只声明未定义的变量` 或 `未定义的变量` 的返回值都是 `undefined`
-2. `undefined` 是个假值。
+1. **对于使用`typeof` 对 `只声明未定义的变量` 或 `未定义的变量` 的返回值都是 `undefined`**
+2. **`undefined` 是个假值**
 
 
 ### 3. Null 类型
 
 逻辑上表示空对象指针，所以使用 `typeof` 时，返回 `Object`。
-1. 定义 **<mark>将来要保存对象值</mark>** 的变量时，建议使用 `null` 来初始化
+1. **定义 **<mark>将来要保存对象值</mark>** 的变量时，建议使用 `null` 来初始化**
 ```javascript
 if (car != null) {
   // car 是一个对象的引用
 }
 ```
 
-2. `undefined值` 是由 `null值` 派生而来的
+2. **`undefined值` 是由 `null值` 派生而来的**
 ```javascript
 console.log(null == undefined); // true
 ```
 >即使 `null` 和 `undefined` 有关系，**它们的用途也是完全不一样的**。如前所述，永远不必显式地将变量值设置为 `undefined` 。但 `null` 不是这样的。**任何时候，只要变量要保存对象，而当时又没有那个对象可保存，就要用 `null` 来填充该变量**。<mark>这样就可以保持 `null` 是空对象指针的语义</mark>，并进一步将其与 `undefined` 区分开来。
 
-3. `null` 是个假值
+3. **`null` 是个假值**
 
-### Boolean 类型
-1. 值为 `true` 和 `false`
-2. 区分大小写：Ture 和 False 是有效的标识符但不是 `布尔值`
-3. 可用其他类型的值转换 
+### 4. Boolean 类型
+1. **值为 `true` 和 `false`**
+2. **区分大小写：Ture 和 False 是有效的标识符但不是 `布尔值`**
+3. **可用其他类型的值转换** 
 ```javascript
 let message = "Hello world!";
 let messageAsBoolean = Boolean(message);
 ```
 
-### Number 类型
-1. 表示整数和浮点值（在某些语言中也叫双精度值）
+### 5. Number 类型
+1. **表示整数和浮点值**（在某些语言中也叫双精度值）
 ```javascript
 let intNum = 55; // 整数
 
@@ -273,7 +274,7 @@ let hexNum2 = 0x1f; // 十六进制 31
 - **<mark>使用八进制和十六进制格式创建的数值在所有数学操作中都被视为十进制数值</mark>**
 - `正零` 和 `负零` 在所有情况下都被认为是等同的
 
-2. 浮点值
+2. **浮点值**
 ```javascript
 let floatNum1 = 1.1;
 let floatNum2 = 0.1;
@@ -303,7 +304,7 @@ let result = Number.MAX_VALUE + Number.MAX_VALUE;
 console.log(isFinite(result)); // false
 ```
 
-3. `NaN`
+3. **`NaN`**
 意思是“不是数值”（Not a Number），用于 **表示本来要返回数值的操作失败了**（而不是抛出错误）
 ```javascript
 console.log(0/0); // NaN
@@ -327,19 +328,19 @@ console.log(isNaN("blue")); // true，不可以转换为数值
 console.log(isNaN(true)); // false，可以转换为数值 1
 ```
 
-4. 数值转换
-- `Number()` 转化规则<br/>
-_1. 布尔值：`true` 转化为 1，`false` 转化为 0_<br/>
-_2. 数值，直接返回_<br/>
-_3. `null` ，返回 0_<br/>
-_4. `undefined` ，返回 NaN_<br/>
-_5. 字符串应用以下规则：_<br/>
-_&emsp; .1  Number("1") 返回 1， Number("123") 返回 123， Number("011") 返回 11（忽略前面的零）_<br/>
-_&emsp; .2  "1.1" ，则会转换为相应的浮点值（同样，忽略前面的零）_<br/>
-_&emsp; .3 字符串包含有效的十六进制格式如 "0xf" ，则会转换为与该十六进制值对应的十进制整数值_<br/>
-_&emsp; .4 空字符串（不包含字符），则返回 0_<br/>
-_&emsp; .5 上述情况之外的其他字符，则返回 NaN_<br/>
-_6. 对象，调用 valueOf() 方法，并按照上述规则转换返回的值。如果转换结果是 NaN ，则调用toString() 方法，再按照转换字符串的规则转换_
+4. **数值转换**
+- `Number()` 转化规则
+&emsp;1. 布尔值：`true` 转化为 1，`false` 转化为 0
+&emsp;2. 数值，直接返回
+&emsp;3. `null` ，返回 0
+&emsp;4. `undefined` ，返回 NaN
+&emsp;5. 字符串应用以下规则：
+&emsp;&emsp; (1).  Number("1") 返回 1， Number("123") 返回 123， Number("011") 返回 11（忽略前面的零）
+&emsp;&emsp; (2).  "1.1" ，则会转换为相应的浮点值（同样，忽略前面的零）
+&emsp;&emsp; (3). 字符串包含有效的十六进制格式如 "0xf" ，则会转换为与该十六进制值对应的十进制整数值
+&emsp;&emsp; (4). 空字符串（不包含字符），则返回 0
+&emsp;&emsp; (5). 上述情况之外的其他字符，则返回 NaN
+&emsp;6. 对象，调用 valueOf() 方法，并按照上述规则转换返回的值。如果转换结果是 NaN ，则调用toString() 方法，再按照转换字符串的规则转换
 ```javascript
 let num1 = Number("Hello world!"); // NaN
 let num2 = Number(""); // 0
@@ -386,7 +387,72 @@ let num5 = parseFloat("0908.5"); // 908.5
 let num6 = parseFloat("3.125e7"); // 31250000
 ```
 
-### String 类型
+### 6. String 类型
+
+1. **合法表示** 
+双引号（"）、单引号（'）或反引号（`）
+```javascript
+let firstName = "John";
+let lastName = 'Jacob';
+let lastName = `Jingleheimerschmidt`
+```
+
+2. **`toString()`**
+-  `null` 和 `undefined` 值没有 toString() 方法
+- 数值的 `toString()` 接收参数，可以返回对应进制的字符串， **不传默认10进制**
+```javascript
+let num = 10;
+console.log(num.toString()); // "10"
+console.log(num.toString(2)); // "1010"
+console.log(num.toString(8)); // "12"
+console.log(num.toString(10)); // "10"
+console.log(num.toString(16)); // "a"
+``` 
+
+-  __<mark>不确定一个值是不是 `null` 或 `undefined` 时</mark>__
+如果你不确定一个值是不是 `null` 或 `undefined` ，可以使用 `String()` 转型函数，它始终会返回表示相应类型值的字符串。 `String()` 函数遵循如下规则
+&emsp;&emsp;1. 如果值有 `toString()` 方法，则调用该方法（不传参数）并返回结果。
+&emsp;&emsp;2.  `null` ，返回 "null"
+&emsp;&emsp;3.  `undefined` ，返回 "undefined"
+```javascript
+let value1 = 10;
+let value2 = true;
+let value3 = null;
+let value4;
+console.log(String(value1)); // "10"
+console.log(String(value2)); // "true"
+console.log(String(value3)); // "null"
+console.log(String(value4)); // "undefined"
+```
+&emsp;&emsp;**<u>解决了 `null` 和 `undefind` 没有 `toString()`方法的检测</u>**
+
+
+3. **模板字面量标签函数**
+```javascript
+let a = 'x';
+let b = 'y';
+function simpleTag(strings, aVal, bVal, sumVal) {
+    console.log(strings);   // [ '1', '2 + 3', '4 = 5', '6' ]
+    console.log(aVal);      // x
+    console.log(bVal);      // y
+    console.log(sumVal);    // xy
+    return 'foobar';
+}
+let A = `${ a } + ${ b } = ${ a + b }`;
+let B = simpleTag`1${ a }2 + 3${ b }4 = 5${ a + b }6`;
+
+console.log(A);            // x + y = xy
+console.log(B);            // foobar
+```
+
+4. **原始字符串**
+使用模板字面量也可以直接获取原始的模板字面量内容（如换行符或 Unicode 字符），而不是被转换后的字符表示。为此，可以使用默认的 `String.raw` 标签函数
+```javascript
+console.log(`\u00A9`); // ©
+console.log(String.raw`\u00A9`); // \u00A9
+```
+
+### 7. Symbol 类型
 
 
 ---
