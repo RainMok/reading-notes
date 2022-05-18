@@ -329,17 +329,17 @@ console.log(isNaN(true)); // false，可以转换为数值 1
 ```
 
 4. **数值转换**
-- `Number()` 转化规则
-&emsp;1. 布尔值：`true` 转化为 1，`false` 转化为 0
-&emsp;2. 数值，直接返回
-&emsp;3. `null` ，返回 0
-&emsp;4. `undefined` ，返回 NaN
-&emsp;5. 字符串应用以下规则：
-&emsp;&emsp; (1).  Number("1") 返回 1， Number("123") 返回 123， Number("011") 返回 11（忽略前面的零）
-&emsp;&emsp; (2).  "1.1" ，则会转换为相应的浮点值（同样，忽略前面的零）
-&emsp;&emsp; (3). 字符串包含有效的十六进制格式如 "0xf" ，则会转换为与该十六进制值对应的十进制整数值
-&emsp;&emsp; (4). 空字符串（不包含字符），则返回 0
-&emsp;&emsp; (5). 上述情况之外的其他字符，则返回 NaN
+- `Number()` 转化规则<br/>
+&emsp;1. 布尔值：`true` 转化为 1，`false` 转化为 0<br/>
+&emsp;2. 数值，直接返回<br/>
+&emsp;3. `null` ，返回 0<br/>
+&emsp;4. `undefined` ，返回 NaN<br/>
+&emsp;5. 字符串应用以下规则：<br/>
+&emsp;&emsp; (1).  Number("1") 返回 1， Number("123") 返回 123， Number("011") 返回 11（忽略前面的零）<br/>
+&emsp;&emsp; (2).  "1.1" ，则会转换为相应的浮点值（同样，忽略前面的零）<br/>
+&emsp;&emsp; (3). 字符串包含有效的十六进制格式如 "0xf" ，则会转换为与该十六进制值对应的十进制整数值<br/>
+&emsp;&emsp; (4). 空字符串（不包含字符），则返回 0<br/>
+&emsp;&emsp; (5). 上述情况之外的其他字符，则返回 NaN<br/>
 &emsp;6. 对象，调用 valueOf() 方法，并按照上述规则转换返回的值。如果转换结果是 NaN ，则调用toString() 方法，再按照转换字符串的规则转换
 ```javascript
 let num1 = Number("Hello world!"); // NaN
