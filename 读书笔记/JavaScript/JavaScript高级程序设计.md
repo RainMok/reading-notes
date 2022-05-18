@@ -6,37 +6,37 @@
 - [JavaScript高级程序设计](#javascript高级程序设计)
   - [- **作者：Matt Frisbie**](#--作者matt-frisbie)
   - [Script 标签](#script-标签)
-    - [1. async](#1-async)
-    - [2. integrity](#2-integrity)
-    - [3. type](#3-type)
+    - [一. async](#一-async)
+    - [二. integrity](#二-integrity)
+    - [三. type](#三-type)
   - [noscript 标签](#noscript-标签)
   - [动态加载脚本](#动态加载脚本)
     - [利用DOM Api 实现加载外部指定脚本](#利用dom-api-实现加载外部指定脚本)
   - [严格模式](#严格模式)
   - [语法](#语法)
   - [变量](#变量)
-    - [1. var 关键字](#1-var-关键字)
-    - [2. let 关键字](#2-let-关键字)
-    - [3. const 关键字](#3-const-关键字)
+    - [一. var 关键字](#一-var-关键字)
+    - [二. let 关键字](#二-let-关键字)
+    - [三. const 关键字](#三-const-关键字)
   - [数据类型](#数据类型)
-    - [1. typeof 操作符](#1-typeof-操作符)
-    - [2. Undefinde 类型](#2-undefinde-类型)
-    - [3. Null 类型](#3-null-类型)
-    - [4. Boolean 类型](#4-boolean-类型)
-    - [5. Number 类型](#5-number-类型)
-    - [6. String 类型](#6-string-类型)
-    - [7. Symbol 类型](#7-symbol-类型)
+    - [一. typeof 操作符](#一-typeof-操作符)
+    - [二. Undefinde 类型](#二-undefinde-类型)
+    - [三. Null 类型](#三-null-类型)
+    - [四. Boolean 类型](#四-boolean-类型)
+    - [五. Number 类型](#五-number-类型)
+    - [六. String 类型](#六-string-类型)
+    - [七. Symbol 类型](#七-symbol-类型)
 ---
 
 ## Script 标签
 
-### 1. async
+### 一. async
 <mark>可选</mark>。表示应该立即开始下载脚本，但不能阻止其他页面动作，比如下载资源或等待其他脚本加载。只对外部脚本文件有效
 
-### 2. integrity 
+### 二. integrity 
 <mark>可选</mark>。允许比对接收到的资源和指定的加密签名以验证子资源完整性（SRI，Subresource Integrity）。**如果接收到的资源的签名与这个属性指定的签名不匹配，则页面会报错，脚本不会执行**。这个属性可以用于确保内容分发网络（CDN，Content Delivery Network）不会提供恶意内容。
 
-### 3. type
+### 三. type
 如果这个值是 **<mark>module</mark>**，则代码会被当成 `ES6` 模块，而且只有这时候代码中才能出现`import`和`export`关键字。
 
 ---
@@ -104,7 +104,7 @@ if (true){
 ---
 
 ## 变量
-### 1. var 关键字 
+### 一. var 关键字 
 >声明的范围是 **<mark>函数作用域</mark>**
 1. **`var` 定义变量的时候，自动被赋值 `undefined`**
 2. **定义多个变量时，可以用`逗号，`隔开**
@@ -146,7 +146,7 @@ var age 22;
 这样反复操作也是没有问题的。
 ```
 
-### 2. let 关键字
+### 二. let 关键字
 >声明的范围是 **<mark>块级作用域</mark>**
 1. **块级作用域**
 ```javascript
@@ -202,7 +202,7 @@ for(let i = 5; i < 5; i++){
 >之所以会这样，是因为在退出循环时，迭代变量保存的是导致循环退出的值：5。在之后执行超时逻辑时，所有的 i 都是同一个变量，因而输出的都是同一个最终值。
 >而在使用 let 声明迭代变量时，JavaScript 引擎在后台会为每个迭代循环声明一个新的迭代变量。每个 setTimeout 引用的都是不同的变量实例，所以 console.log 输出的是我们期望的值，也就是循环执行过程中每个迭代变量的值
 
-### 3. const 关键字
+### 三. const 关键字
 
 1. **初始化即复制，不可更改；复制对象时，对象元素除外**
    
@@ -219,12 +219,12 @@ for(let i = 5; i < 5; i++){
 |简单数据类型|`Undefined`|`Null`|`Boolean`|`Number`|`String`|`Symbol`(符号)|
 |复杂数据类型|`Object`||||||
 
-### 1. typeof 操作符
+### 一. typeof 操作符
 |`undefined`|`boolean`|`string`|`number`|`object`|`function`|`symbol`|
 |---|---|---|---|---|---|---|
 >**注意**：严格来讲，<u>函数在 ECMAScript 中被认为是对象</u>，并不代表一种数据类型。可是，**函数也有自己特殊的属性**。为此，就有必要通过 `typeof` 操作符来区分函数和其他对象。
 
-### 2. Undefinde 类型
+### 二. Undefinde 类型
 
 变量在声明的时候并未初始化时，会被隐式地赋值 `undefined` ，无需显示赋值。**目的是**：<u>明确空指针对象与未赋值变量的区别</u>
 
@@ -232,7 +232,7 @@ for(let i = 5; i < 5; i++){
 2. **`undefined` 是个假值**
 
 
-### 3. Null 类型
+### 三. Null 类型
 
 逻辑上表示空对象指针，所以使用 `typeof` 时，返回 `Object`。
 1. **定义 **<mark>将来要保存对象值</mark>** 的变量时，建议使用 `null` 来初始化**
@@ -250,7 +250,7 @@ console.log(null == undefined); // true
 
 3. **`null` 是个假值**
 
-### 4. Boolean 类型
+### 四. Boolean 类型
 1. **值为 `true` 和 `false`**
 2. **区分大小写：Ture 和 False 是有效的标识符但不是 `布尔值`**
 3. **可用其他类型的值转换** 
@@ -259,7 +259,7 @@ let message = "Hello world!";
 let messageAsBoolean = Boolean(message);
 ```
 
-### 5. Number 类型
+### 五. Number 类型
 1. **表示整数和浮点值**（在某些语言中也叫双精度值）
 ```javascript
 let intNum = 55; // 整数
@@ -387,7 +387,7 @@ let num5 = parseFloat("0908.5"); // 908.5
 let num6 = parseFloat("3.125e7"); // 31250000
 ```
 
-### 6. String 类型
+### 六. String 类型
 
 1. **合法表示** 
 双引号（"）、单引号（'）或反引号（`）
@@ -452,7 +452,7 @@ console.log(`\u00A9`); // ©
 console.log(String.raw`\u00A9`); // \u00A9
 ```
 
-### 7. Symbol 类型
+### 七. Symbol 类型
 
 
 ---
