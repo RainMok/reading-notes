@@ -1,11 +1,10 @@
-# JavaScript高级程序设计
+# JavaScript 高级程序设计
 ![](http://md.raizo.club/cover.png)
 - **第四版**
 - **作者：Matt Frisbie**
 ---
-- [JavaScript高级程序设计](#javascript高级程序设计)
+- [JavaScript 高级程序设计](#javascript-高级程序设计)
   - [- **作者：Matt Frisbie**](#--作者matt-frisbie)
-  - [- ### 八. Object 类型](#---八-object-类型)
   - [Script 标签](#script-标签)
     - [一. async](#一-async)
     - [二. integrity](#二-integrity)
