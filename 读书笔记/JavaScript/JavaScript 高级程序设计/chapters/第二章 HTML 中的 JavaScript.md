@@ -60,5 +60,5 @@ document.head.appendChild(script);
 
 <div style="display:flex; justify-content:space-between;">
     <p><a href="/读书笔记/JavaScript/JavaScript 高级程序设计/index.md">目录</a></p>
-    <p>下一章</p>
+    <p><a href="/读书笔记/JavaScript/JavaScript 高级程序设计/chapters/第三章 语言基础.md">下一章</a></p>
 </div>
