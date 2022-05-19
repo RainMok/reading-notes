@@ -8,7 +8,7 @@
 - [ ] 《JavaScript高级程序设计》
     - [ ] 第三章 数据类型
         - [ ] Symbol
-        - [ ] Object 
+
 
 
 
