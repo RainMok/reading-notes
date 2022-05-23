@@ -17,3 +17,8 @@
 
 ##### &emsp;&emsp;[第五章 数组和类型化数组](/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0//JavaScript/ECMAScript%202018%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/chapters/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E6%95%B0%E7%BB%84%E5%92%8C%E7%B1%BB%E5%9E%8B%E5%8C%96%E6%95%B0%E7%BB%84.md)
 
+
+
+##### &emsp;&emsp;[第六章 对象](/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/JavaScript/ECMAScript%202018%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/chapters/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E5%AF%B9%E8%B1%A1.md)
+
+
