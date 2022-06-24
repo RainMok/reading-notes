@@ -22,3 +22,10 @@
 ##### &emsp;&emsp;[第六章 对象](/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/JavaScript/ECMAScript%202018%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/chapters/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E5%AF%B9%E8%B1%A1.md)
 
 
+
+##### &emsp;&emsp;[第七章 函数](/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/JavaScript/ECMAScript%202018%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/chapters/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E5%87%BD%E6%95%B0.md)
+
+
+
+##### &emsp;&emsp;[第八章 映射和函数](/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/JavaScript/ECMAScript%202018%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/chapters/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E9%9B%86%E5%90%88%E5%92%8C%E6%98%A0%E5%B0%84.md)
+
