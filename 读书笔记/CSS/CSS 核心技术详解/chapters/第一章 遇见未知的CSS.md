@@ -43,3 +43,25 @@ div {
   left: -9999px;
 }
 ``` 
+
+- **通过 `text-indent` 实现文字隐藏的效果**
+> 给页面添加LOGO图片，若想让搜索引擎搜索到，则需要添加文字，但又不想显示文字，可以使用这个方法
+```css
+div {
+  text-indent: -9999px;
+}
+```
+
+- **通过 `z-index` 隐藏一个元素**
+> 需要给上面的元素添加一个背景色，不然后面遮挡的内容会透过来
+
+- **通过给元素设置 `overflow` 来隐藏元素**
+> 元素超出所设置的宽高，溢出的部分会被隐藏
+
+- **通过 `visibility` 将元素设置为不可见**
+
+---
+<div style="display:flex;justify-content:space-between;">
+  <p><a href="/读书笔记/CSS/CSS 核心技术详解/index.md">目录</a></p>
+  <p><a href="#">下一章</a>/p>
+</div>
