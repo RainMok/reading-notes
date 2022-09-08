@@ -30,3 +30,5 @@
 - &emsp;&emsp;[《TypeScript 编程》](/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/TypeScript/TypeScript%20%E7%BC%96%E7%A8%8B/index.md)
 
 
+### &emsp; Java
+- &emsp;&emsp;[《Java 核心技术 （卷一）》](/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/Java/Java%20%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%20%EF%BC%88%E5%8D%B7%E4%B8%80%EF%BC%89/index.md)
