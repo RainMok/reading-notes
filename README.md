@@ -32,3 +32,6 @@
 
 ### &emsp; Java
 - &emsp;&emsp;[《Java 核心技术 （卷一）》](/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/Java/Java%20%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%20%EF%BC%88%E5%8D%B7%E4%B8%80%EF%BC%89/index.md)
+- &emsp;&emsp;[《疯狂Java突破程序员基本功的10课》](/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/Java/%E7%96%AF%E7%8B%82Java%E7%AA%81%E7%A0%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E5%9F%BA%E6%9C%AC%E5%8A%9F%E7%9A%8410%E8%AF%BE/index.md)
+
+
